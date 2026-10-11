@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Una llama que no se apaga · Renuevo de Gracia</title>
+<meta name="description" content="Actividad de parejas · Sábado 24 de octubre, 19:00 hrs · San Felipe 129 · Renuevo de Gracia">
+<meta property="og:title" content="Una llama que no se apaga">
+<meta property="og:description" content="Actividad de parejas · Sábado 24 de octubre, 19:00 hrs · San Felipe 129">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Una sola columna centrada, como invitación impresa; el formulario se abre en un diálogo. */
+:root{
+  --ground:#1C1210;
+  --surface:#2A1B17;
+  --field:#140D0B;
+  --ink:#F5EBDD;
+  --ink-soft:#E9D9C4;
+  --ink-muted:#C9B49A;
+  --flame:#E8833A;
+  --gold:#F2C46D;
+  --line:rgba(242,196,109,.45);
+  --display:'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --body:'Jost', 'Avenir Next', 'Segoe UI', system-ui, sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--ground);color:var(--ink)}
+body{font-family:var(--body);min-height:100vh;min-height:100dvh;-webkit-font-smoothing:antialiased}
+button,input{font:inherit}
+button:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+.page{
+  position:relative;overflow:hidden;
+  max-width:760px;margin:0 auto;
+  min-height:100vh;min-height:100dvh;
+  padding:calc(56px + env(safe-area-inset-top,0px)) 20px calc(40px + env(safe-area-inset-bottom,0px));
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+}
+.glow{
+  position:absolute;left:50%;top:120px;width:620px;height:620px;max-width:none;margin-left:-310px;border-radius:50%;
+  background:radial-gradient(circle,rgba(232,131,58,.30) 0%,rgba(232,131,58,.08) 45%,rgba(232,131,58,0) 70%);
+  pointer-events:none;animation:glow 3.2s ease-in-out infinite;
+}
+.eyebrow{position:relative;display:flex;align-items:center;gap:14px;font-size:clamp(13px,3.4vw,18px);font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+.eyebrow::before,.eyebrow::after{content:"";width:clamp(28px,8vw,56px);height:1px;background:var(--gold)}
+
+.flame{position:relative;width:clamp(150px,40vw,220px);height:auto;margin-top:36px}
+.flame path{transform-box:fill-box;transform-origin:50% 100%}
+.f-a{animation:flicker-a 2.6s ease-in-out infinite}
+.f-b{animation:flicker-b 2.2s ease-in-out infinite}
+.f-core{animation:flicker-core 1.6s ease-in-out infinite}
+@keyframes flicker-a{0%,100%{transform:scale(1,1) skewX(0)}25%{transform:scale(.97,1.05) skewX(-2deg)}50%{transform:scale(1.02,.97) skewX(1.5deg)}75%{transform:scale(.98,1.03) skewX(-1deg)}}
+@keyframes flicker-b{0%,100%{transform:scale(1,1) skewX(0)}30%{transform:scale(1.03,.96) skewX(2deg)}60%{transform:scale(.96,1.06) skewX(-1.5deg)}85%{transform:scale(1.01,.99) skewX(1deg)}}
+@keyframes flicker-core{0%,100%{transform:scale(1,1);opacity:1}40%{transform:scale(.92,1.1);opacity:.85}70%{transform:scale(1.05,.94);opacity:1}}
+@keyframes glow{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.08);opacity:.75}}
+
+h1{position:relative;margin:28px 0 0;font-family:var(--display);font-weight:600;font-size:clamp(52px,14vw,96px);line-height:.98;letter-spacing:-.01em;text-wrap:balance}
+h1 em{display:block;font-style:italic;font-weight:500;color:var(--gold)}
+.verse{position:relative;margin:28px 0 0;max-width:30ch;font-family:var(--display);font-style:italic;font-size:clamp(22px,5.4vw,30px);line-height:1.35;color:var(--ink-soft)}
+.ref{position:relative;margin:10px 0 0;font-size:14px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-muted)}
+
+.details{
+  position:relative;margin-top:40px;width:100%;
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+}
+.details div{display:flex;flex-direction:column;gap:6px;padding:24px 8px}
+.details div+div{border-left:1px solid var(--line)}
+.details span{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-muted)}
+.details strong{font-family:var(--display);font-size:clamp(26px,6vw,40px);font-weight:600;line-height:1.05}
+@media (max-width:520px){
+  .details{grid-template-columns:1fr}
+  .details div{padding:18px 8px}
+  .details div+div{border-left:0;border-top:1px solid var(--line)}
+}
+
+.foot{position:relative;margin-top:36px;display:flex;flex-direction:column;align-items:center;gap:20px}
+.church{font-size:clamp(16px,4vw,22px);font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--gold)}
+.foot p{margin:0;font-size:18px;color:var(--ink-soft)}
+.btn{
+  min-height:60px;padding:0 44px;border:0;border-radius:999px;cursor:pointer;
+  background:var(--gold);color:var(--ground);
+  font-size:18px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+  transition:transform .15s ease,background .15s ease;
+}
+.btn:hover{background:#F7D58E;transform:translateY(-1px)}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn-ghost:hover{background:rgba(242,196,109,.1)}
+
+/* Diálogo */
+dialog{
+  width:min(560px,calc(100% - 32px));max-height:calc(100dvh - 32px);overflow:auto;
+  padding:40px 28px 32px;border:1px solid var(--line);border-radius:20px;
+  background:var(--surface);color:var(--ink);text-align:left;
+}
+dialog::backdrop{background:rgba(12,7,6,.82)}
+dialog[open]{animation:rise .25s ease-out}
+@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.close{position:absolute;right:12px;top:12px;width:44px;height:44px;border:0;border-radius:999px;background:transparent;color:var(--ink-soft);cursor:pointer;display:grid;place-items:center}
+.close:hover{background:rgba(242,196,109,.12)}
+.kicker{font-size:13px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:var(--gold)}
+dialog h2{margin:6px 0 0;font-family:var(--display);font-size:38px;font-weight:600;line-height:1.05;text-wrap:balance}
+form{display:flex;flex-direction:column;gap:22px;margin-top:24px}
+.row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+@media (max-width:480px){.row{grid-template-columns:1fr}}
+.field{display:flex;flex-direction:column;gap:8px;font-size:16px;font-weight:500;color:var(--ink-soft)}
+.field input{
+  height:54px;padding:0 16px;border:1px solid var(--line);border-radius:12px;
+  background:var(--field);color:var(--ink);font-size:18px;width:100%;
+}
+.field input::placeholder{color:#8F7A66}
+fieldset{border:0;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+legend{padding:0;margin-bottom:10px;font-size:16px;font-weight:500;color:var(--ink-soft)}
+.choices{display:flex;gap:12px}
+.choices label{flex:1;position:relative}
+.choices input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.choices span{
+  display:grid;place-items:center;height:54px;border:1px solid var(--line);border-radius:12px;
+  font-size:18px;font-weight:600;color:var(--ink);transition:background .15s ease,color .15s ease;
+}
+.choices input:checked+span{background:var(--gold);color:var(--ground);border-color:var(--gold)}
+.choices input:focus-visible+span{outline:2px solid var(--gold);outline-offset:3px}
+.count input{width:140px}
+.hint{margin:0;font-size:14px;color:var(--ink-muted)}
+.error{margin:0;font-size:15px;color:#FFB59A}
+
+.done{display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;padding:8px 0}
+.done p{margin:0;font-size:18px;line-height:1.45;color:var(--ink-soft)}
+.done small{font-size:15px;color:var(--ink-muted)}
+
+@media (prefers-reduced-motion:reduce){
+  .glow,.f-a,.f-b,.f-core,dialog[open]{animation:none}
+  .btn{transition:none}
+}
+</style>
+</head>
+<body>
+<main class="page">
+  <div class="glow" aria-hidden="true"></div>
+
+  <p class="eyebrow">Red de Matrimonios</p>
+
+  <svg class="flame" viewBox="0 0 200 240" aria-hidden="true">
+    <path class="f-a" fill="#E8833A" d="M84 228 C40 214 22 176 30 138 C38 100 66 84 70 46 C88 66 92 92 88 112 C100 100 108 82 106 60 C134 88 148 124 140 164 C134 198 112 222 84 228 Z"/>
+    <path class="f-b" fill="#F2C46D" opacity=".92" d="M118 230 C150 222 172 196 172 162 C172 130 152 110 146 84 C134 102 132 120 136 136 C124 124 118 108 120 90 C96 112 84 140 88 172 C92 204 104 224 118 230 Z"/>
+    <path class="f-core" fill="#FFF1D6" d="M101 226 C86 218 80 202 84 186 C88 172 98 166 100 150 C110 162 116 176 114 192 C112 210 108 220 101 226 Z"/>
+  </svg>
+
+  <h1>Una llama <em>que no se apaga</em></h1>
+
+  <p class="verse">“Las muchas aguas no podrán apagar el amor, ni lo ahogarán los ríos.”</p>
+  <p class="ref">Cantares 8:7</p>
+
+  <section class="details" aria-label="Datos del evento">
+    <div><span>Sábado</span><strong>24 de octubre</strong></div>
+    <div><span>Hora</span><strong>19:00 hrs</strong></div>
+    <div><span>Lugar</span><strong>San Felipe 129</strong></div>
+  </section>
+
+  <div class="foot">
+    <span class="church">Renuevo de Gracia</span>
+    <p>Te esperamos junto a tu pareja</p>
+    <button class="btn" type="button" id="open-btn">Regístrate</button>
+  </div>
+</main>
+
+<dialog id="reg" aria-labelledby="reg-title">
+  <button class="close" type="button" id="close-btn" aria-label="Cerrar">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+
+  <div id="step-form">
+    <span class="kicker">Registro de pareja</span>
+    <h2 id="reg-title">Una llama que no se apaga</h2>
+    <form id="reg-form" novalidate>
+      <div class="row">
+        <label class="field" for="him">Nombre de él
+          <input id="him" name="him" type="text" autocomplete="off" placeholder="Nombre y apellido" required>
+        </label>
+        <label class="field" for="her">Nombre de ella
+          <input id="her" name="her" type="text" autocomplete="off" placeholder="Nombre y apellido" required>
+        </label>
+      </div>
+
+      <fieldset>
+        <legend>¿Tienen hijos?</legend>
+        <div class="choices">
+          <label><input type="radio" name="kids" id="kids-yes" value="si"><span>Sí</span></label>
+          <label><input type="radio" name="kids" id="kids-no" value="no"><span>No</span></label>
+        </div>
+      </fieldset>
+
+      <label class="field count" for="kids-count" id="count-wrap" hidden>¿Cuántos hijos?
+        <input id="kids-count" name="count" type="number" inputmode="numeric" min="1" max="20" placeholder="Ej: 2">
+      </label>
+
+      <p class="error" id="error" role="alert" hidden></p>
+      <button class="btn" type="submit">Confirmar registro</button>
+    </form>
+  </div>
+
+  <div id="step-done" class="done" hidden>
+    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#F2C46D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M7.5 12.5l3 3 6-6.5"/></svg>
+    <h2>¡Registro recibido!</h2>
+    <p id="done-line"></p>
+    <small>Sábado 24 de octubre · 19:00 hrs · San Felipe 129</small>
+    <button class="btn-ghost btn" type="button" id="done-close">Cerrar</button>
+  </div>
+</dialog>
+
+<script>
+/* ===== CONFIGURA AQUÍ =====
+   URL de la aplicación web de Apps Script (termina en /exec) */
+const SHEET_URL = "https://script.google.com/macros/s/AKfycbzBWazxdBSmObUtNHTYwCL6Fxmug9iZwKLcmWbYNL5RGBYhnBts5W-WzMEe_mMXQTGYAw/exec";
+/* ========================== */
+
+const dlg = document.getElementById('reg');
+const form = document.getElementById('reg-form');
+const him = document.getElementById('him');
+const her = document.getElementById('her');
+const countWrap = document.getElementById('count-wrap');
+const count = document.getElementById('kids-count');
+const errorEl = document.getElementById('error');
+const stepForm = document.getElementById('step-form');
+const stepDone = document.getElementById('step-done');
+
+function openDialog(){
+  stepForm.hidden = false; stepDone.hidden = true; errorEl.hidden = true;
+  if (typeof dlg.showModal === 'function') dlg.showModal(); else dlg.setAttribute('open','');
+  setTimeout(() => him.focus(), 50);
+}
+function closeDialog(){
+  if (typeof dlg.close === 'function') dlg.close(); else dlg.removeAttribute('open');
+  form.reset(); countWrap.hidden = true;
+}
+
+document.getElementById('open-btn').addEventListener('click', openDialog);
+document.getElementById('close-btn').addEventListener('click', closeDialog);
+document.getElementById('done-close').addEventListener('click', closeDialog);
+dlg.addEventListener('click', (e) => { if (e.target === dlg) closeDialog(); });
+
+form.addEventListener('change', (e) => {
+  if (e.target.name === 'kids') {
+    countWrap.hidden = e.target.value !== 'si';
+    if (e.target.value !== 'si') count.value = '';
+  }
+});
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const a = him.value.trim();
+  const b = her.value.trim();
+  const kids = (form.querySelector('input[name="kids"]:checked') || {}).value;
+  const missing = [];
+  if (!a) missing.push('el nombre de él');
+  if (!b) missing.push('el nombre de ella');
+  if (!kids) missing.push('si tienen hijos');
+  if (missing.length) {
+    errorEl.textContent = 'Falta completar ' + missing.join(', ') + '.';
+    errorEl.hidden = false;
+    return;
+  }
+  errorEl.hidden = true;
+
+  const submitBtn = form.querySelector('button[type="submit"]');
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Enviando…';
+
+  const data = new URLSearchParams({ him: a, her: b, kids: kids, count: kids === 'si' ? count.value : '' });
+
+  fetch(SHEET_URL, { method: 'POST', mode: 'no-cors', body: data })
+    .then(() => {
+      document.getElementById('done-line').textContent = a + ' y ' + b + ', ¡los esperamos!';
+      stepForm.hidden = true; stepDone.hidden = false;
+    })
+    .catch(() => {
+      errorEl.textContent = 'No se pudo enviar el registro. Revisa tu conexión a internet e inténtalo de nuevo.';
+      errorEl.hidden = false;
+    })
+    .finally(() => {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Confirmar registro';
+    });
+});
+</script>
+</body>
+</html>
